@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const ArticleLink = props => (
     <div style={{backgroundColor: props.backgroundColor}}>
         <div>
-            {<Link to={"/articles/" + props.article._id} className="nav-link text-black-50">{props.article.name}</Link>}
+            {<Link to={"/api/articles/" + props.article._id} className="nav-link text-black-50">{props.article.name}</Link>}
         </div>
 
         {/*<div>*/}

@@ -20,12 +20,13 @@ function App() {
               <Logo/>
               <Navbar/>
               <Route path="/" exact component={ExercisesList}/>
-              <Route path="/edit/:id" component={EditExercise}/>
-              <Route path="/create" component={CreateExercise}/>
-              <Route path="/user" component={CreateUser}/>
-              <Route exact strict path="/articles" component={Articles}/>
-              <Route exact strict path="/articles/" component={Articles}/>
-              <Route path="/articles/:id" component={Article}/>
+              <Route path="/api" exact component={ExercisesList}/>
+              <Route path="/api/edit/:id" component={EditExercise}/>
+              <Route path="/api/create" component={CreateExercise}/>
+              <Route path="/api/user" component={CreateUser}/>
+              <Route exact strict path="/api/articles" component={Articles}/>
+              <Route exact strict path="/api/articles/" component={Articles}/>
+              <Route path="/api/articles/:id" component={Article}/>
               <Footer/>
           </div>
       </Router>

@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 
 function LeftButton(props) {
     if(props.sortOrder){ // first article (prolog) must have sortOrder === 0
-        return <Button href={'/articles/' + props.prevId} style={{marginRight: "20px"}}>Previous</Button>;
+        return <Button href={'/api/articles/' + props.prevId} style={{marginRight: "20px"}}>Previous</Button>;
     }else{
         return "";
     }
@@ -73,7 +73,7 @@ export default class Article extends Component {
                         <div >
                             {this.state.date.toString().substring(0, 10)}
                         </div>
-                        <Button href={'/articles/' + this.state.nextId} style={{marginLeft: "20px"}}>Next</Button>
+                        <Button href={'/api/articles/' + this.state.nextId} style={{marginLeft: "20px"}}>Next</Button>
                     </div>
                 </div>
             </div>
