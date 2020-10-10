@@ -27,11 +27,11 @@ app.use('/articles', articlesRouter);
 app.use('/users', usersRouter);
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+    app.use(express.static('client/build'));//add slash before client?
 
-    // app.get('*', (req,res) => {
-    //     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-    // });// dont need this?
+    app.get('*', (req,res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    });
 }
 
 app.listen(port, () => {
