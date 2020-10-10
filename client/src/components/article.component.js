@@ -27,7 +27,7 @@ export default class Article extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/articles/' + this.props.match.params.id)
+        axios.get('/articles/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     name: response.data.name,
@@ -43,14 +43,14 @@ export default class Article extends Component {
     }
 
     setPrevAndNextIds(sortOrderId) {
-        axios.get('http://localhost:5000/articles/sortorder/' + (sortOrderId + 1))
+        axios.get('/articles/sortorder/' + (sortOrderId + 1))
             .then(response => {
                 this.setState({nextId: response.data[0]._id})
             }).catch(error => {
             console.log(error);
         });
 
-        axios.get('http://localhost:5000/articles/sortorder/' + (sortOrderId - 1))
+        axios.get('/articles/sortorder/' + (sortOrderId - 1))
             .then(response => {
                 this.setState({prevId: response.data[0]._id})
             }).catch(error => {
