@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'
+import globalV from "./global-variables";
 
 const ArticleLink = props => (
     <div style={{backgroundColor: props.backgroundColor}}>
         <div>
-            {<Link to={"/api/articles/" + props.article._id} className="nav-link text-black-50">{props.article.name}</Link>}
+            {<Link to={"/api/articles/" + props.article._id}
+                   className="nav-link text-black-50">{props.article.name}</Link>}
         </div>
 
         {/*<div>*/}
@@ -19,7 +21,6 @@ const ArticleLink = props => (
 
 );
 
-
 export default class Articles extends Component {
     constructor(props) {
         super(props);
@@ -27,12 +28,12 @@ export default class Articles extends Component {
     }
 
     componentDidMount() {
-        axios.get('/articles/')
-            .then(response => {
-                this.setState({
-                    articles: response.data
-                })
-            }).catch(error => {
+        axios.get(globalV.DATABASE_URL + '/articles/')
+        .then(response => {
+            this.setState({
+                articles: response.data
+            })
+        }).catch(error => {
             console.log(error);
         });
     }
@@ -50,7 +51,6 @@ export default class Articles extends Component {
             return <ArticleLink article={article} backgroundColor={backgroundColor} key={article._id}/>
         })
     }
-
 
     render() {
         return (

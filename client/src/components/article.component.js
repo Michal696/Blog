@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
 import Button from "react-bootstrap/Button";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import globalV from "./global-variables";
 
 
 function LeftButton(props) {
@@ -27,7 +28,7 @@ export default class Article extends Component {
     }
 
     componentDidMount() {
-        axios.get('/articles/' + this.props.match.params.id)
+        axios.get(globalV.DATABASE_URL+'/articles/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     name: response.data.name,
@@ -43,14 +44,14 @@ export default class Article extends Component {
     }
 
     setPrevAndNextIds(sortOrderId) {
-        axios.get('/articles/sortorder/' + (sortOrderId + 1))
+        axios.get(globalV.DATABASE_URL+'/articles/sortorder/' + (sortOrderId + 1))
             .then(response => {
                 this.setState({nextId: response.data[0]._id})
             }).catch(error => {
             console.log(error);
         });
 
-        axios.get('/articles/sortorder/' + (sortOrderId - 1))
+        axios.get(globalV.DATABASE_URL+'/articles/sortorder/' + (sortOrderId - 1))
             .then(response => {
                 this.setState({prevId: response.data[0]._id})
             }).catch(error => {
