@@ -11,6 +11,7 @@ import Logo from "./components/logo.component";
 import Footer from "./components/footer.component";
 import Articles from "./components/articles.component";
 import Article from "./components/article.component";
+import NotFound from "./components/not-found.component";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
               <Route exact strict path="/api/articles" component={Articles}/>
               <Route exact strict path="/api/articles/" component={Articles}/>
               <Route path="/api/articles/:id" component={Article}/>
+              <Route path="/notfound" exact component={NotFound}/>
               <Footer/>
           </div>
       </Router>

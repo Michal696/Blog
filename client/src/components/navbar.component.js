@@ -13,10 +13,10 @@ export default class Navbar extends Component {
                         {/*    <Link to="/" className="nav-link">Exercises</Link>*/}
                         {/*</li>*/}
                         <li className="navbar-item">
-                            <Link to="/" className="nav-link">About me</Link>
+                            <Link to="/notfound" className="nav-link">About me</Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to="/" className="nav-link">Prolog</Link>
+                            <Link to="/notfound" className="nav-link">Prolog</Link>
                         </li>
                         {/*<li className="navbar-item">*/}
                         {/*    <Link to="/api/create" className="nav-link">Create Exercise log</Link>*/}
