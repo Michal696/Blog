@@ -5,20 +5,9 @@ import globalV from "./global-variables";
 
 const ArticleLink = props => (
     <div style={{backgroundColor: props.backgroundColor}}>
-        <div>
-            {<Link to={"/api/articles/" + props.article._id}
-                   className="nav-link text-black-50">{props.article.name}</Link>}
-        </div>
-
-        {/*<div>*/}
-        {/*    {props.article.content}*/}
-        {/*</div>*/}
-
-        {/*<div>*/}
-        {/*    {props.article.date}*/}
-        {/*</div>*/}
+        {<Link to={"/api/articles/" + props.article._id}
+               className="nav-link text-black-50">{props.article.name}</Link>}
     </div>
-
 );
 
 export default class Articles extends Component {
@@ -39,18 +28,24 @@ export default class Articles extends Component {
     }
 
     getArticles() {
-        var i = 0;
-        return this.state.articles.map(article => {
-            i++;
+        var oArticles =  this.state.articles.map(article => {
             var backgroundColor;
-            if (i % 2) {
+            if (article.sortOrder % 2) {
                 backgroundColor = "#008080";
             } else {
                 backgroundColor = "#20B2AA";
             }
             return <ArticleLink article={article} backgroundColor={backgroundColor} key={article._id}/>
-        })
+        });
+
+        oArticles = oArticles.sort(this.sortBySortOrder);
+
+        return oArticles;
     }
+
+    sortBySortOrder = function (a, b) {
+        return a.props.article.sortOrder - b.props.article.sortOrder
+    };
 
     render() {
         return (

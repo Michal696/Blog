@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class EditExercise extends Component {
+export default class NotFound extends Component {
 	constructor(props) {
 		super(props);
 	}
@@ -8,7 +8,8 @@ export default class EditExercise extends Component {
 	render() {
 		return (
 				<div>
-					<h3 align="Center" style={{backgroundColor: "#00908f", padding: "10px"}}>We are sorry this page does not exist yet.</h3>
+					<h3 align="Center" style={{backgroundColor: "#00908f", padding: "10px" , marginBottom: "0px"}}>
+						Je nám ľúto, že táto stránka ešte neexistuje.</h3>
 				</div>
 		)
 	}

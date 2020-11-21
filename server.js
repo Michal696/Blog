@@ -18,13 +18,9 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
-const exercisesRouter = require('./routes/exercises');
 const articlesRouter = require('./routes/articles');
-const usersRouter = require('./routes/users');
 
-app.use('/exercises', exercisesRouter);
 app.use('/articles', articlesRouter);
-app.use('/users', usersRouter);
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));//add slash before client?
